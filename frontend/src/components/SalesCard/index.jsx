@@ -1,25 +1,20 @@
-import NotificationButton from '../NotificationButton'
-import './styles.css'
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import NotificationButton from '../NotificationButton';
+import './styles.css';
 function SalesCard() {
+
+    const min = new Date(new Date().setDate(new Date().getDate() - 365));
+    const max = new Date();
+    const [minDate, setMinDate] = useState(min);
+    const [maxDate, setMaxDate] = useState(max);
     return (
         <>
             <div className="dsmeta-card">
                 <h2 className="dsmeta-sales-title">Vendas</h2>
                 <div>
-                    <div className="dsmeta-form-control-container">
-                        <input
-                            className="dsmeta-form-control"
-                            type="text"
-                            value="01/02/2022"
-                        />
-                    </div>
-                    <div className="dsmeta-form-control-container">
-                        <input
-                            className="dsmeta-form-control"
-                            type="text"
-                            value="30/04/2022"
-                        />
-                    </div>
+                 
                 </div>
                 <div>
                     <table className="dsmeta-sales-table">
@@ -46,7 +41,7 @@ function SalesCard() {
                                     <div className="dsmeta-btn-container">
                                         <div className="dsmeta-red-btn">
                                             <NotificationButton />
-                                         
+
                                         </div>
                                     </div>
                                 </td>
@@ -61,7 +56,7 @@ function SalesCard() {
                                 <td>
                                     <div className="dsmeta-btn-container">
                                         <div className="dsmeta-red-btn">
-                                        <NotificationButton />
+                                            <NotificationButton />
                                         </div>
                                     </div>
                                 </td>
@@ -74,4 +69,4 @@ function SalesCard() {
     )
 }
 
-export default SalesCard
+export default SalesCard;
